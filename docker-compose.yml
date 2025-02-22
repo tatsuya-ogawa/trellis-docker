@@ -1,0 +1,18 @@
+services:
+  trellis:
+    build:
+      context: .
+    # image: togawa83/trellis:latest
+    ports:
+      - "7860:7860"
+    volumes:
+      - cache:/root/.cache
+    tty: true
+    stdin_open: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+volumes:
+  cache:
